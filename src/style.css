@@ -218,25 +218,16 @@
 }
 
 @media only screen and (max-width: 415px) {
-  body {
-    padding: 0;
-    height: 100vh;
-    width: 100vw;
-  }
   .container {
+    height: fit-content;
     padding: 0;
     background: aliceblue;
-    min-height: auto;
-    height: 100vh;
-    width: 100vw;
   }
 
   .container .card-container {
     transform: rotate(90deg);
     transition: all 0.3s ease-in;
     margin-bottom: 0;
-    width: 80vh;
-    height: 100vw;
   }
 
   .container form {
