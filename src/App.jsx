@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './card.css'
 import './style.css'
+import useLongPress from './useLongPress';
 
 function App() {
   const years = ["2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"];
@@ -26,7 +27,6 @@ function App() {
     }
   }, [])
 
-
   const submit = (e) => {
     e.preventDefault();
     if (card1.includes("#") || card1.length < 4 || isNaN(card2) || card2.length < 4 || isNaN(card3) || card3.length < 4 || isNaN(card4) || card4.length < 4 || cardName === "" || isNaN(cardMonth) || isNaN(cardYear) || isNaN(cardCvv) || cardCvv.length < 3) {
@@ -51,6 +51,14 @@ function App() {
       setData(JSON.parse(localStorage.getItem('cardDetails')));
     }
   }
+
+  const elementRef = useRef()
+  useLongPress(elementRef, () => {
+    if (confirm("Are you sure, you want to reset?")) {
+      localStorage.removeItem('cardDetails')
+      setSubmitVal(false);
+    }
+  })
 
   return (
     <div className="container">
@@ -171,9 +179,9 @@ function App() {
           </form >
         </>
       ) : (
-        <div className="card-container">
+        <div className="card-container" ref={elementRef}>
           <div className="front" id={`${mouse ? 'front1' : 'front2'}`} onClick={() => setMouse(true)}>
-            <div className="image">
+            <div className="image mt-10 sm:mt-5">
               <div className="chip">
                 <div className="chip-line"></div>
                 <div className="chip-line"></div>
