@@ -118,7 +118,7 @@ function App() {
                     {data?.cardCvv && cardCvv === "cvv" ? data.cardCvv : cardCvv}
                   </div>
                 </div>
-                <img src="image/visa.png" alt="" />
+                <img src="/visa.png" alt="" />
               </div>
             </div>
 
@@ -220,7 +220,7 @@ function App() {
                 <div className="cvv-empty"></div>
                 <div className="cvv-box">{data.cardCvv}</div>
               </div>
-              <img src="image/visa.png" alt="" />
+              <img src="/visa.png" alt="" />
             </div>
           </div>
         </div>

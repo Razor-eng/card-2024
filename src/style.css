@@ -201,6 +201,7 @@
 .container .card-container .back .box img {
   margin-top: 30px;
   height: 30px;
+  margin-left: auto;
 }
 
 #front1 {
